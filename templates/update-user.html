@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} page update {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-sm-12">
+        <form method="post">
+            <div class="mb-3">
+                <input type="hidden" name="field_name_antigo" value="{{user[1]}}">
+                <label for="input_name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="input_name" name="field_name" value="{{user[1]}}"
+                    placeholder="Informe seu name">
+            </div>
+            <div class="mb-3">
+                <label for="input_email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="input_email" name="field_email" value="{{user[2]}}"
+                    placeholder="name@example.com">
+            </div>
+
+            <div class="mb-3">
+                <label for="input_senha" class="form-label">Password</label>
+                <input type="password" class="form-control" id="input_senha" name="field_senha" value="{{user[3]}}"
+                    placeholder="123456">
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" class="btn btn-default" value="Save">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

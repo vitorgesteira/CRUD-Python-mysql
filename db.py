@@ -1,15 +1,17 @@
 import mysql.connector
 from mysql.connector import errorcode, Error
-import dotenv
-import os
+from dotenv import load_dotenv, dotenv_values
+
+load_dotenv()
 
 class DB:
-    dotenv.load_dotenv(dotenv.find_dotenv())
+    config = dotenv_values('.env')
     def __init__(self):
-        host = os.getenv("HOST")
-        user = os.getenv("USER")
-        password = os.getenv("PASSWORD")
-        database = os.getenv("DATABASE")
+        host = DB.config.get("HOST")
+        user = DB.config.get("USER")
+        password = DB.config.get("PASSWORD")
+        database = DB.config.get("DATABASE")
+        self.__conexao = None
 
         try:
             self.__conexao = mysql.connector.connect(host=host, user=user, password=password, database=database)
@@ -32,3 +34,5 @@ class DB:
             print("SQL Error: ", err)
             return False
 
+    def get_conexao(self):
+        return self.__conexao

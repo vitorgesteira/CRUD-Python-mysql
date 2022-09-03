@@ -9,3 +9,4 @@ CREATE TABLE usuario(
     data_criacao VARCHAR(20)
 );
 
+select * from usuario;

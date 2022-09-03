@@ -1,7 +1,7 @@
 import query
 
 def insert():
-    print('Inserir Usuario:')
+    print('Inserir Usuario')
     nome = str(input('Nome: '))
     email = str(input('Email: '))
     senha = str(input('Senha: '))
@@ -35,5 +35,5 @@ def remove():
     query.removeSQL(usuario)
 
 def select():
-    print('Usuario:',end=' ')
+    print('Usuario:', end=' ')
     query.selectSQL()

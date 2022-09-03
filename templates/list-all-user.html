@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% block title %} page Listagem de Usuarios {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-sm-8">
+        <table class="table responsive">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if users %}
+                    {% for user in users %}
+                    <tr>
+                        <td>{{user[0]}}</td>
+                        <td>{{user[1]}}</td>
+                        <td>{{user[2]}}</td>
+                        <td>
+                            <a href="/usuarios/{{user[0]}}" class="btn btn-outline-primary">Meus Dados</a>
+                            <a href="/usuarios-delete/{{user[1]}}" class="btn btn-outline-danger">Remove</a>
+                        </td>
+                    </tr>                    
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>1</td>
+                        <td>jose</td>
+                        <td>jose@gmail.com</td>
+                    </tr>
+                {% endif %}
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
