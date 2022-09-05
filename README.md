@@ -2,86 +2,46 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/vitorgesteira/exemplo-readme/edit/master/README.md)
 
 # Sobre o projeto
-Crud com python usando o mysql.connector
+Um mini sistema web com funcionalidade de um Crud
 
-Aplicação feita com o intuito de treinar e aprender a desenvolver um crud com python usando o mysql.connector.
+Aplicação feita com o intuito de treinar e aprender a desenvolver um crud com python.
 E tambem ter um modelo onde possa usar e adaptar em projetos futuros com python.
 
-obs: uma classe DB onde faz a conexao com o banco de dados e um metodo ExecuteSQL() que recebe qualquer Query 
+## Presentação do projeto
 
-arquivo db.py
-```python
-class DB:
-    dotenv.load_dotenv(dotenv.find_dotenv())
-    def __init__(self):
-        host = os.getenv("HOST")
-        user = os.getenv("USER")
-        password = os.getenv("PASSWORD")
-        database = os.getenv("DATABASE")
+https://user-images.githubusercontent.com/54457455/188462677-60b84275-4fba-4189-abf3-e4e07436f53e.mp4
 
-        try:
-            self.__conexao = mysql.connector.connect(host=host, user=user, password=password, database=database)
-        except mysql.connector.Error as err:
-            if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-                print("Something is wrong with your user name or password")
-            elif err.errno == errorcode.ER_BAD_DB_ERROR:
-                print("Database does not exist")
-            else:
-                print(err)
 
-    def ExecuteSQL(self, sql, select=False):
-        try:
-            cursor = self.__conexao.cursor()
-            cursor.execute(sql)
-            if not select:
-                self.__conexao.commit()
-            return cursor
-        except Error as err:
-            print("SQL Error: ", err)
-            return False
+```bash
+#clonar o repositorio
+git clone git@github.com:vitorgesteira/CRUD-Python-mysql.git
+
+#instalar a venv
+py -m venv venv 
+
+#ativa o venv
+.\venv\Scripts\activate
+
+#E instala as dependências 
+pip install -r requirements.txt
+
+#roda o flask
+flask run
 
 ```
-
-obs: arquivo query.py com algumas querys que envia para o metodo ExecuteSQL() da classe DB
-
-arquivo query.py
-```python
-from db import DB
-
-db = DB()
-
-def InsertSQL(usuario):
-    sql = "INSERT INTO usuario (nome, email, senha)" \
-          "VALUES ('%(nome)s', '%(email)s', '%(senha)s')"
-    result = db.ExecuteSQL(sql % usuario)
-    if result:
-        print("Registro incluído!")
-
-def UpdateSQL(usuario):
-    sql = "UPDATE usuario SET nome='%(setNome)s', email='%(setEmail)s', senha='%(setSenha)s' " \
-          "WHERE nome='%(whereNome)s'"
-    result = db.ExecuteSQL(sql % usuario)
-    if result:
-        print("Alteração concluida!")
-
-def removeSQL(usuario):
-    sql = "DELETE FROM usuario WHERE nome = '%(nome)s'"
-    result = db.ExecuteSQL(sql % usuario)
-    if result:
-        print("Usuario deletado!")
-
-def selectSQL():
-    sql = "SELECT * FROM usuario"
-    result = db.ExecuteSQL(sql, True)
-    for x in result:
-        print(x)
-```
-
-
-
 # Tecnologias utilizadas
+## Back end
+- Flask
 - Python
 - Mysql.conector
 - os
+- Jinja
 
-Pré-requisitos: Python 3 / pip / Mysql / os / dotenv
+## Front end
+- Bootstrap
+
+# Autor
+
+Vitor Gesteira Almeida
+
+https://www.linkedin.com/in/vitor-gesteira/
