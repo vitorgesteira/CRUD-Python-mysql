@@ -8,9 +8,7 @@ Aplicação feita com o intuito de treinar e aprender a desenvolver um crud com 
 E tambem ter um modelo onde possa usar e adaptar em projetos futuros com python.
 
 ## Presentação do projeto
-
-https://user-images.githubusercontent.com/54457455/188462677-60b84275-4fba-4189-abf3-e4e07436f53e.mp4
-
+https://user-images.githubusercontent.com/54457455/189902790-eb80eada-da2c-4ecf-8a6a-a5410f268aae.mp4
 
 ```bash
 #clonar o repositorio
