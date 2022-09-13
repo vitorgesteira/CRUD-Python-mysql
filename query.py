@@ -3,8 +3,8 @@ from db import DB
 db = DB()
 
 def InsertSQL(usuario):
-    sql = "INSERT INTO usuario (nome, email, senha)" \
-          "VALUES ('%(nome)s', '%(email)s', '%(senha)s')"
+    sql = "INSERT INTO usuario (nome, email, senha, data_criacao)" \
+          "VALUES ('%(nome)s', '%(email)s', '%(senha)s', '%(data)s')"
     db.ExecuteSQL(sql % usuario)
 
 def UpdateSQL(usuario):

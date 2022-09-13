@@ -10,6 +10,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Dating Creation</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -19,8 +20,11 @@
                         <td>{{user[0]}}</td>
                         <td>{{user[1]}}</td>
                         <td>{{user[2]}}</td>
+                        <td>{{user[4]}}</td>
                         <td>
-                            <a href="/usuarios-update/{{user[0]}}">Editar</a>
+                            <a href="/usuarios-update/{{user[0]}}">
+                                Editar
+                            </a>
                         </td>
                     </tr>                    
                 {% else %}

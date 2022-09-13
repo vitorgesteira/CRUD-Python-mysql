@@ -4,6 +4,7 @@ from flask import (
 )
 import db
 import query as q
+import datetime
 
 app_name = 'crud-python-mysql'
 
@@ -19,7 +20,8 @@ def create():
         usuario = {
             'nome': request.form['nome'],
             'email': request.form['email'],
-            'senha': request.form['senha']
+            'senha': request.form['senha'],
+            'data': datetime.date.today()
         }
         q.InsertSQL(usuario)
         return redirect('/usuarios')
